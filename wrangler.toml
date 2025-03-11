@@ -1,0 +1,31 @@
+name = "booking-system"
+main = "src/index.ts"
+compatibility_date = "2023-12-01"
+
+[vars]
+BUSINESS_NAME = "Andriana Delcheva"
+BUSINESS_EMAIL = "contact@andrianadelcheva.com"
+EMAIL_FROM = "bookings@andrianadelcheva.com"
+MCP_ENABLED = "true"
+
+# Uncomment these in your actual wrangler.toml and set these values
+# MCP_SERVER_URL = "https://your-mcp-server.com"
+# MCP_API_KEY = "your-mcp-api-key"
+# GOOGLE_CLIENT_EMAIL = "your-google-service-account@example.iam.gserviceaccount.com"
+# GOOGLE_CALENDAR_ID = "your-calendar-id@group.calendar.google.com"
+# GOOGLE_PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+[env.production]
+routes = [
+  { pattern = "booking.andrianadelcheva.com", custom_domain = true }
+]
+
+# Add KV namespace for storing bookings
+# [[kv_namespaces]]
+# binding = "BOOKINGS"
+# id = "your-kv-namespace-id"
+
+# Use this for secrets in production
+# [env.production.vars]
+# MCP_API_KEY = ""  # Use `wrangler secret put MCP_API_KEY` instead
+# GOOGLE_PRIVATE_KEY = ""  # Use `wrangler secret put GOOGLE_PRIVATE_KEY` instead
